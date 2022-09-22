@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/ -->
+<html lang="zh-TW" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	
+	  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars</title>
+	<meta name="description" content="將 Windows Forms 專案打包成安裝檔，是發佈給更多使用者執行比較好的方法。可控制安裝目錄檔案，保留舊版本使用者設定檔，也可以避免使用者個人電腦環境的差異，造成程式無法執行。">
+	<link rel="canonical" href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/">
+	<meta property="og:locale" content="zh_TW">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars">
+	<meta property="og:description" content="將 Windows Forms 專案打包成安裝檔，是發佈給更多使用者執行比較好的方法。可控制安裝目錄檔案，保留舊版本使用者設定檔，也可以避免使用者個人電腦環境的差異，造成程式無法執行。">
+	<meta property="og:url" content="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/">
+	<meta property="og:site_name" content="工程師 Mars">
+	<meta property="article:publisher" content="https://www.facebook.com/groups/winmis">
+	<meta property="article:published_time" content="2021-09-01T14:16:00+00:00">
+	<meta property="article:modified_time" content="2022-01-04T07:07:45+00:00">
+	<meta property="og:image" content="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup.png">
+	<meta property="og:image:width" content="800">
+	<meta property="og:image:height" content="450">
+	<meta property="og:image:type" content="image/png">
+	<meta name="author" content="Mars">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Mars">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="7 分鐘">
+	<script src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f.txt"></script><script src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f(1).txt" id="google_shimpl"></script><script type="text/javascript" async="" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/recaptcha__zh_cn.js.下載" crossorigin="anonymous" integrity="sha384-TndvOZipFoLuuyQy2vGQ7i9JoKgJbTDBpxnwVqW+hDpYNLlpB/GBnvUExkatFWRh"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/","url":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/","name":"如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars","isPartOf":{"@id":"https://blog.hungwin.com.tw/#website"},"primaryImageOfPage":{"@id":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#primaryimage"},"image":{"@id":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#primaryimage"},"thumbnailUrl":"https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup.png","datePublished":"2021-09-01T14:16:00+00:00","dateModified":"2022-01-04T07:07:45+00:00","author":{"@id":"https://blog.hungwin.com.tw/#/schema/person/0d0c90f8113fc8ecb0698135591d3a61"},"description":"將 Windows Forms 專案打包成安裝檔，是發佈給更多使用者執行比較好的方法。可控制安裝目錄檔案，保留舊版本使用者設定檔，也可以避免使用者個人電腦環境的差異，造成程式無法執行。","breadcrumb":{"@id":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#breadcrumb"},"inLanguage":"zh-TW","potentialAction":[{"@type":"ReadAction","target":["https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/"]}]},{"@type":"ImageObject","inLanguage":"zh-TW","@id":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#primaryimage","url":"https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup.png","contentUrl":"https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup.png","width":800,"height":450,"caption":"如何在 Visual Studio 2019 建立 Windows Forms App程式安裝檔"},{"@type":"BreadcrumbList","@id":"https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://blog.hungwin.com.tw/"},{"@type":"ListItem","position":2,"name":"如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔"}]},{"@type":"WebSite","@id":"https://blog.hungwin.com.tw/#website","url":"https://blog.hungwin.com.tw/","name":"工程師 Mars","description":"跟你分享如何成為優秀的軟體工程師","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://blog.hungwin.com.tw/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"zh-TW"},{"@type":"Person","@id":"https://blog.hungwin.com.tw/#/schema/person/0d0c90f8113fc8ecb0698135591d3a61","name":"Mars","image":{"@type":"ImageObject","inLanguage":"zh-TW","@id":"https://blog.hungwin.com.tw/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/82b3a5cd6201bc959e96c40e2025838c?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/82b3a5cd6201bc959e96c40e2025838c?s=96&d=mm&r=g","caption":"Mars"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《工程師 Mars》» 資訊提供" href="https://blog.hungwin.com.tw/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《工程師 Mars》» 留言的資訊提供" href="https://blog.hungwin.com.tw/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《工程師 Mars 》»〈如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔〉留言的資訊提供" href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/feed/">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.hungwin.com.tw\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script><script src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/wp-emoji-release.min.js.下載" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="urvanov_syntax_highlighter-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/urvanov_syntax_highlighter.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-cdn-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/all.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wc-blocks-vendors-style-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/wc-blocks-vendors-style.css" type="text/css" media="all">
+<link rel="stylesheet" id="wc-blocks-style-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/wc-blocks-style.css" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="toc-screen-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/screen.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce-layout-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/woocommerce-layout.css" type="text/css" media="all">
+<link rel="stylesheet" id="woocommerce-smallscreen-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/woocommerce-smallscreen.css" type="text/css" media="only screen and (max-width: 768px)">
+<link rel="stylesheet" id="woocommerce-general-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/woocommerce.css" type="text/css" media="all">
+<style id="woocommerce-inline-inline-css" type="text/css">
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel="stylesheet" id="bootstrap-css-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-lightbox-2.min.css-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/lightbox.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="businessdeal-style-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="fontawesome-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/all.min(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="businessdeal-google-fonts-css" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/css" type="text/css" media="all">
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/jquery.min.js.下載" id="jquery-core-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/jquery-migrate.min.js.下載" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="jquery-js-after">
+jQuery(document).ready(function() {
+	jQuery(".55962404ecf37f51b5d5b2445076605d").click(function() {
+		jQuery.post(
+			"https://blog.hungwin.com.tw/wp-admin/admin-ajax.php", {
+				"action": "quick_adsense_onpost_ad_click",
+				"quick_adsense_onpost_ad_index": jQuery(this).attr("data-index"),
+				"quick_adsense_nonce": "5ff321d3d1",
+			}, function(response) { }
+		);
+	});
+});
+</script>
+<script type="text/javascript" id="urvanov_syntax_highlighter_js-js-extra">
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.28","is_admin":"0","ajaxurl":"https:\/\/blog.hungwin.com.tw\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u9ede\u64ca\u5c55\u958b\u4ee3\u78bc"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/urvanov_syntax_highlighter.min.js.下載" id="urvanov_syntax_highlighter_js-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/bootstrap.min.js.下載" id="bootstrap-js-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/global.js.下載" id="businessdeal-global-js"></script>
+<link rel="https://api.w.org/" href="https://blog.hungwin.com.tw/wp-json/"><link rel="alternate" type="application/json" href="https://blog.hungwin.com.tw/wp-json/wp/v2/posts/2852"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.hungwin.com.tw/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.hungwin.com.tw/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 6.0.2">
+<meta name="generator" content="WooCommerce 6.9.3">
+<link rel="shortlink" href="https://blog.hungwin.com.tw/?p=2852">
+<link rel="alternate" type="application/json+oembed" href="https://blog.hungwin.com.tw/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.hungwin.com.tw%2Fvisual-studio-2019-winform-setup%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://blog.hungwin.com.tw/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.hungwin.com.tw%2Fvisual-studio-2019-winform-setup%2F&amp;format=xml">
+<style type="text/css">div#toc_container ul li {font-size: 100%;}</style>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<link rel="icon" href="https://blog.hungwin.com.tw/wp-content/uploads/2021/06/cloud-1.png" sizes="32x32">
+<link rel="icon" href="https://blog.hungwin.com.tw/wp-content/uploads/2021/06/cloud-1.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://blog.hungwin.com.tw/wp-content/uploads/2021/06/cloud-1.png">
+<meta name="msapplication-TileImage" content="https://blog.hungwin.com.tw/wp-content/uploads/2021/06/cloud-1.png">
+		<style type="text/css" id="wp-custom-css">
+			.widget_search .search-submit, .post-page-search .search-submit {
+    height: 36px;
+    width: 80px;
+    background-color: #3c8dbc; /* 背景色 */
+    color: #ffffff;
+    margin-left: -1px;
+}
+
+
+.entry-content p{
+	font-size: 16px; /* 字體大小 */
+}
+
+.entry-content li{
+	font-size: 16px; /* 字體大小 */
+	margin-bottom: 10px;
+}
+
+.entry-content h2{
+    border-left: 5px solid #001F3F; /* 左邊框線 */
+    background-color: #F1F1F1; /* 背景色 */
+    font-size: 23px; /* 字體大小 */
+    padding-left: 10px; /* 左邊間距 */
+    padding-top: 2px; /* 上面間距 */
+    padding-bottom: 2px; /* 下面間距 */
+    line-height: 1.7em; /* 行高 */
+	color: #001F3F; /* 字體顏色 */
+	font-weight:  bold; /* 字體粗細 */
+}
+
+.entry-content h3{
+	color: #333399;
+  font-size: 20px;
+	font-weight:  bold;
+  border-bottom: 1px dashed #d9d9d9;
+}
+
+.entry-content h4{
+	border-width: 5px;
+  border-style: double;
+  text-align: center;
+}
+
+.entry-title {
+	color : #3c8dbc; /* 改顏色 */
+	font-size: 32px; /* 改大小 */
+    line-height: 1.5;
+    display: block;
+    padding: 0;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* 文章圖片邊框 */
+.entry-content img {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.9);
+}
+
+/* 首頁縮圖邊框 */
+.post-thumbnail img{
+	box-shadow: 0 1px 5px 0 rgb(0 0 0 / 90%);
+	width: 100%;
+}
+
+.widget_views li {
+    border-bottom: 1px dashed #d9d9d9;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}
+
+.main-navigation ul.sub-menu,
+.main-navigation ul.children {
+    background-color: #3c8dbc;
+    left: 15px;
+    min-width: 200px;
+    position: absolute;
+    top: 120%;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.youtube-rwd {
+    position: relative;
+    padding-bottom: 56.25%;
+		margin-bottom: 15px;
+}
+ 
+.youtube-rwd iframe {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.BaseTable th{
+    background-color: #F1F1F1;
+    color: #001F3F;
+    font-weight: bold;
+    text-align: center;
+}		</style>
+		
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RVF635QENK');
+</script>
+
+<!-- Google Adsense-->
+<script async="" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f(2).txt" crossorigin="anonymous" data-checked-head="true"></script>
+
+<meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f(3).txt" as="script"><script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f(3).txt"></script><link rel="preload" href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f(4).txt" as="script"><script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/f(4).txt"></script></head>
+
+<body class="post-template-default single single-post postid-2852 single-format-standard theme-businessdeal woocommerce-js has-sidebar" style="">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0.49803921568627"></fefuncr><fefuncg type="table" tableValues="0 0.49803921568627"></fefuncg><fefuncb type="table" tableValues="0 0.49803921568627"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.54901960784314 0.98823529411765"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0.71764705882353 0.25490196078431"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 0.27843137254902"></fefuncg><fefuncb type="table" tableValues="0.5921568627451 0.27843137254902"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0"></fefuncr><fefuncg type="table" tableValues="0 0.64705882352941"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.78039215686275 1"></fefuncr><fefuncg type="table" tableValues="0 0.94901960784314"></fefuncg><fefuncb type="table" tableValues="0.35294117647059 0.47058823529412"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.65098039215686 0.40392156862745"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0.44705882352941 0.4"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.098039215686275 1"></fefuncr><fefuncg type="table" tableValues="0 0.66274509803922"></fefuncg><fefuncb type="table" tableValues="0.84705882352941 0.41960784313725"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><div id="page" class="site" style="height: auto !important;">
+	<a class="skip-link screen-reader-text" href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#content">Skip to content</a>
+	
+	
+	<header id="masthead" class="site-header">
+		<div id="main-header" class="main-header">
+			<div class="navigation-top">
+        		<div class="wrap">
+        			    <div class="site-branding">
+                <div class="site-branding-text">
+
+                            <p class="site-title"><a href="https://blog.hungwin.com.tw/" rel="home">工程師 Mars</a></p>
+                                <p class="site-description">跟你分享如何成為優秀的軟體工程師</p>
+            
+        </div><!-- .site-branding-text -->
+    </div><!-- .site-branding -->
+
+
+	            	<div id="site-header-menu" class="site-header-menu">
+						<nav class="main-navigation" aria-label="Primary Menu" role="navigation">
+							    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span class="toggle-text">Menu</span>
+        <span class="toggle-bar"></span>
+    </button>
+
+    <ul id="primary-menu" class="menu nav-menu"><li id="menu-item-2937" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2937"><a href="https://blog.hungwin.com.tw/category/web-design/">網頁開發</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li id="menu-item-3156" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3156"><a href="https://blog.hungwin.com.tw/category/web-design/system-analysis/">需求分析</a></li>
+	<li id="menu-item-2945" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2945"><a href="https://blog.hungwin.com.tw/category/web-design/front-end-tech/">前端設計</a></li>
+	<li id="menu-item-2946" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2946"><a href="https://blog.hungwin.com.tw/category/web-design/asp-net-mvc/">ASP.NET MVC</a></li>
+	<li id="menu-item-1328" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1328"><a href="https://blog.hungwin.com.tw/category/web-design/csharp/">C#</a></li>
+	<li id="menu-item-1333" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1333"><a href="https://blog.hungwin.com.tw/category/web-design/web-server/">網站伺服器</a></li>
+	<li id="menu-item-1332" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1332"><a href="https://blog.hungwin.com.tw/category/web-design/domain/">網域申請</a></li>
+	<li id="menu-item-5717" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5717"><a href="https://blog.hungwin.com.tw/category/web-design/dev/">開發技巧</a></li>
+	<li id="menu-item-1400" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1400"><a href="https://blog.hungwin.com.tw/category/web-design/version-control/">版本控制</a></li>
+</ul>
+</li>
+<li id="menu-item-249" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-249"><a href="https://blog.hungwin.com.tw/category/wordpress/">WordPress</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li id="menu-item-2215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2215"><a href="https://blog.hungwin.com.tw/category/wordpress/wordpress-setup/">安裝與設定</a></li>
+	<li id="menu-item-994" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-994"><a href="https://blog.hungwin.com.tw/category/wordpress/skill/">修改技巧</a></li>
+	<li id="menu-item-995" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-995"><a href="https://blog.hungwin.com.tw/category/wordpress/plugin/">實用外掛</a></li>
+	<li id="menu-item-4613" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4613"><a href="https://blog.hungwin.com.tw/category/wordpress/cash-flow/">金流</a></li>
+	<li id="menu-item-2037" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2037"><a href="https://blog.hungwin.com.tw/category/wordpress/seo/">SEO</a></li>
+	<li id="menu-item-2491" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2491"><a href="https://blog.hungwin.com.tw/category/wordpress/security-protection/">資安防護</a></li>
+</ul>
+</li>
+<li id="menu-item-2938" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2938"><a href="https://blog.hungwin.com.tw/category/program-transaction/">程式交易</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li id="menu-item-2993" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2993"><a href="https://blog.hungwin.com.tw/category/winform/">視窗程式</a></li>
+	<li id="menu-item-2941" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2941"><a href="https://blog.hungwin.com.tw/category/program-transaction/twse-api/">證交所 API</a></li>
+	<li id="menu-item-2940" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2940"><a href="https://blog.hungwin.com.tw/category/program-transaction/capital-api/">群益 API</a></li>
+	<li id="menu-item-2939" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2939"><a href="https://blog.hungwin.com.tw/category/program-transaction/fubon-api/">富邦 API</a></li>
+	<li id="menu-item-5910" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5910"><a href="https://blog.hungwin.com.tw/category/program-transaction/cuda-gup/">CUDA GPU 平行計算</a></li>
+</ul>
+</li>
+<li id="menu-item-1334" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1334"><a href="https://blog.hungwin.com.tw/category/database/">資料庫</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li id="menu-item-2944" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2944"><a href="https://blog.hungwin.com.tw/category/database/sql-server/">SQL Server</a></li>
+	<li id="menu-item-2943" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2943"><a href="https://blog.hungwin.com.tw/category/database/mysql/">MySQL</a></li>
+	<li id="menu-item-2942" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2942"><a href="https://blog.hungwin.com.tw/category/database/cassandra/">Cassandra</a></li>
+	<li id="menu-item-4418" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4418"><a href="https://blog.hungwin.com.tw/category/database/oracle/">Oracle</a></li>
+</ul>
+</li>
+<li id="menu-item-4153" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4153"><a href="https://blog.hungwin.com.tw/category/blockchain/">區塊鏈</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li id="menu-item-4154" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4154"><a href="https://blog.hungwin.com.tw/category/blockchain/exchange/">交易所</a></li>
+	<li id="menu-item-4419" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4419"><a href="https://blog.hungwin.com.tw/category/blockchain/mining/">挖礦</a></li>
+	<li id="menu-item-4854" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4854"><a href="https://blog.hungwin.com.tw/category/blockchain/web-3-platform/">Web 3 平台</a></li>
+</ul>
+</li>
+<li id="menu-item-2260" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2260"><a>站長推薦</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li id="menu-item-5870" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-5870"><a href="https://blog.hungwin.com.tw/service/">站長服務</a></li>
+	<li id="menu-item-5876" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-5876"><a href="https://blog.hungwin.com.tw/aboutus/">關於站長</a></li>
+	<li id="menu-item-5881" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-5881"><a href="https://blog.hungwin.com.tw/recommend-book/">新手書單推薦</a></li>
+	<li id="menu-item-1329" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1329"><a href="https://blog.hungwin.com.tw/category/recommend-tools/">實用工具</a></li>
+	<li id="menu-item-3676" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3676"><a href="https://blog.hungwin.com.tw/category/personal-growth/">個人成長</a></li>
+</ul>
+</li>
+<li id="menu-item-4612" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4612"><a href="https://blog.hungwin.com.tw/my-account/">會員</a></li>
+</ul>						</nav><!-- #site-navigation -->
+
+													<button type="button" class="search-toggle"><span><span class="screen-reader-text">Search for:</span></span></button>
+											</div>
+				</div><!-- .wrap -->
+			</div><!-- .navigation-top -->
+
+			    <div class="search-container-wrap">
+        <div class="search-container">
+            <form role="search" method="get" class="search" action="https://blog.hungwin.com.tw/"> 
+                <label for="s" class="screen-reader-text">Search</label> 
+                    <input class="search-field" placeholder="Search…" name="s" type="search"> 
+                    <input class="search-submit" value="Search" type="submit">
+            </form>
+        </div><!-- .search-container -->
+    </div><!-- .search-container-wrap -->
+    
+
+			<div class="main-header-brand">
+				
+				<div id="nav-sticker-sticky-wrapper" class="sticky-wrapper is-sticky" style="height: 62px;"><div id="nav-sticker" style="width: 1519.2px; position: fixed; top: 0px; z-index: 999;">
+					<div class="navigation-top">
+						<div class="wrap">
+							<div class="site-branding">
+								 								<div class="site-branding-text">
+									<p class="site-title"><a href="https://blog.hungwin.com.tw/" rel="home">工程師 Mars</a></p>
+																			<p class="site-description">跟你分享如何成為優秀的軟體工程師</p>
+																	</div><!-- .site-branding-text -->
+							</div><!-- .site-branding -->
+
+							<div id="site-header-menu" class="site-header-menu">
+								<nav id="site-navigation" class="main-navigation" aria-label="Primary Menu">
+								    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span class="toggle-text">Menu</span>
+        <span class="toggle-bar"></span>
+    </button>
+
+    <ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2937"><a href="https://blog.hungwin.com.tw/category/web-design/">網頁開發</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3156"><a href="https://blog.hungwin.com.tw/category/web-design/system-analysis/">需求分析</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2945"><a href="https://blog.hungwin.com.tw/category/web-design/front-end-tech/">前端設計</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2946"><a href="https://blog.hungwin.com.tw/category/web-design/asp-net-mvc/">ASP.NET MVC</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1328"><a href="https://blog.hungwin.com.tw/category/web-design/csharp/">C#</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1333"><a href="https://blog.hungwin.com.tw/category/web-design/web-server/">網站伺服器</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1332"><a href="https://blog.hungwin.com.tw/category/web-design/domain/">網域申請</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5717"><a href="https://blog.hungwin.com.tw/category/web-design/dev/">開發技巧</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1400"><a href="https://blog.hungwin.com.tw/category/web-design/version-control/">版本控制</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-249"><a href="https://blog.hungwin.com.tw/category/wordpress/">WordPress</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2215"><a href="https://blog.hungwin.com.tw/category/wordpress/wordpress-setup/">安裝與設定</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-994"><a href="https://blog.hungwin.com.tw/category/wordpress/skill/">修改技巧</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-995"><a href="https://blog.hungwin.com.tw/category/wordpress/plugin/">實用外掛</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4613"><a href="https://blog.hungwin.com.tw/category/wordpress/cash-flow/">金流</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2037"><a href="https://blog.hungwin.com.tw/category/wordpress/seo/">SEO</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2491"><a href="https://blog.hungwin.com.tw/category/wordpress/security-protection/">資安防護</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-2938"><a href="https://blog.hungwin.com.tw/category/program-transaction/">程式交易</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2993"><a href="https://blog.hungwin.com.tw/category/winform/">視窗程式</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2941"><a href="https://blog.hungwin.com.tw/category/program-transaction/twse-api/">證交所 API</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2940"><a href="https://blog.hungwin.com.tw/category/program-transaction/capital-api/">群益 API</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2939"><a href="https://blog.hungwin.com.tw/category/program-transaction/fubon-api/">富邦 API</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5910"><a href="https://blog.hungwin.com.tw/category/program-transaction/cuda-gup/">CUDA GPU 平行計算</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1334"><a href="https://blog.hungwin.com.tw/category/database/">資料庫</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2944"><a href="https://blog.hungwin.com.tw/category/database/sql-server/">SQL Server</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2943"><a href="https://blog.hungwin.com.tw/category/database/mysql/">MySQL</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2942"><a href="https://blog.hungwin.com.tw/category/database/cassandra/">Cassandra</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4418"><a href="https://blog.hungwin.com.tw/category/database/oracle/">Oracle</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-4153"><a href="https://blog.hungwin.com.tw/category/blockchain/">區塊鏈</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4154"><a href="https://blog.hungwin.com.tw/category/blockchain/exchange/">交易所</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4419"><a href="https://blog.hungwin.com.tw/category/blockchain/mining/">挖礦</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4854"><a href="https://blog.hungwin.com.tw/category/blockchain/web-3-platform/">Web 3 平台</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2260"><a>站長推薦</a><button class="dropdown-toggle" aria-expanded="false"> <i class="fas fa-chevron-down"></i> </button>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-5870"><a href="https://blog.hungwin.com.tw/service/">站長服務</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-5876"><a href="https://blog.hungwin.com.tw/aboutus/">關於站長</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-5881"><a href="https://blog.hungwin.com.tw/recommend-book/">新手書單推薦</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1329"><a href="https://blog.hungwin.com.tw/category/recommend-tools/">實用工具</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3676"><a href="https://blog.hungwin.com.tw/category/personal-growth/">個人成長</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4612"><a href="https://blog.hungwin.com.tw/my-account/">會員</a></li>
+</ul>								</nav><!-- #site-navigation -->
+		            												<button type="button" class="search-toggle"><span><span class="screen-reader-text">Search for:</span></span></button>
+															</div>
+        				</div><!-- .wrap -->
+     				</div><!-- .navigation-top -->
+     			</div></div><!-- #nav-sticker -->
+     			    <div class="search-container-wrap">
+        <div class="search-container">
+            <form role="search" method="get" class="search" action="https://blog.hungwin.com.tw/"> 
+                <label for="s" class="screen-reader-text">Search</label> 
+                    <input class="search-field" placeholder="Search…" name="s" type="search"> 
+                    <input class="search-submit" value="Search" type="submit">
+            </form>
+        </div><!-- .search-container -->
+    </div><!-- .search-container-wrap -->
+    
+			</div><!-- .main-header-brand -->
+		</div><!-- .main-header -->
+			</header><!-- #masthead -->
+
+	<div id="content" class="site-content" style="height: auto !important;"><div class="wrap" style="height: auto !important;">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
+
+		
+<article id="post-2852" class="post-2852 post type-post status-publish format-standard has-post-thumbnail hentry category-winform tag-setup">
+	
+			<div class="post-thumbnail">
+				<img width="800" height="450" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="如何在 Visual Studio 2019 建立 Windows Forms App程式安裝檔" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup.png 800w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-768x432.png 768w" sizes="(max-width: 800px) 100vw, 800px">			</div><!-- .post-thumbnail -->
+
+		
+	<div class="entry-content-holder">
+		<header class="entry-header">
+
+		
+				<div class="entry-meta">
+
+					<span class="cat-links"><a href="https://blog.hungwin.com.tw/category/winform/" rel="category tag">視窗程式</a></span>
+				</div><!-- .entry-meta -->
+			<h1 class="entry-title">如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔</h1>
+		<div class="entry-meta">
+			<span class="author vcard"> <a class="url fn n" href="https://blog.hungwin.com.tw/author/eermagic2/"><i class="fas fa-user-tie"></i>Mars</a> </span><span class="posted-on"><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/" rel="bookmark"><time class="entry-date published" datetime="2021-09-01T22:16:00+08:00"><i class="far fa-calendar-alt"></i> 更新日期 2022-01-04 <i class="far fa-calendar-alt"></i> 發佈日期 2021-09-01</time></a></span>		</div><!-- .entry-meta -->
+
+		
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<div class="55962404ecf37f51b5d5b2445076605d" data-index="1" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<!-- Mars-部落格-文章開頭廣告2 -->
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 105px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1959505851793752" data-ad-slot="2289529210" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" style="border: none; height: 105px; width: 850px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_1" name="aswift_1" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 850px; height: 105px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="850" height="105" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/ads.html" data-google-container-id="a!2" data-google-query-id="CLfx3uigp_oCFUdKiwodU70PAw" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<p>將 Windows Forms 專案打包成安裝檔，是發佈給更多使用者執行比較好的方法。<br>
+可控制安裝目錄檔案，保留舊版本使用者設定檔，也可以避免使用者個人電腦環境的差異，造成程式無法執行。</p>
+<p>在過去我要將程式丟給客戶執行的時候，比較方便快速的方法是將 \Debug 裡面的所有檔案壓縮打包給客戶，客戶再解壓縮後去執行裡面的執行檔。</p>
+<p>可是隨著專案慢慢變複雜，程式裡面多了一些使用者設定檔，當客戶每次取得新檔案後，都要重新設定一次，造成客戶時間的浪費。</p>
+<p>如果改用安裝檔的方法，將專案打包成「setup.exe」安裝檔給客戶安裝，就可以保留客戶電腦上的使用者設定檔。</p>
+<p>如果所開發的專案將來是公開給更多人下載使用時，建立安裝檔再放至網路上給所有人下載，也是最好的方式。</p>
+<p>接下來我會分享如何在 Visual Studio 2019 建立 Windows Forms App 專案的程式安裝檔。</p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">目錄 <span class="toc_toggle">[<a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#">hide</a>]</span></p><ul class="toc_list"><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i"><span class="toc_number toc_depth_1">1</span> 建立測試專案</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#_Installer_Projects"><span class="toc_number toc_depth_1">2</span> 安裝 Installer Projects</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-2"><span class="toc_number toc_depth_1">3</span> 安裝檔專案設定</a><ul><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#_Setup_Project"><span class="toc_number toc_depth_2">3.1</span> 加入 Setup Project 專案</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-3"><span class="toc_number toc_depth_2">3.2</span> 加入專案輸出</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-4"><span class="toc_number toc_depth_2">3.3</span> 建立使用者桌面捷徑</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-5"><span class="toc_number toc_depth_2">3.4</span> 建立使用者程式集捷徑</a></li></ul></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-6"><span class="toc_number toc_depth_1">4</span> 設定安裝專案屬性</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-7"><span class="toc_number toc_depth_1">5</span> 輸出安裝檔</a></li><li><a href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#i-8"><span class="toc_number toc_depth_1">6</span> 重點整理</a></li></ul></div>
+<h2><span id="i">建立測試專案</span></h2>
+<p>這裡我新建一個 Windows Forms App (.NET Framework) 的專案來測試。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-1.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone wp-image-2853 size-full" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-1.png" alt="Windows Forms App(.NET Framework)" width="1009" height="651" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-1.png 1009w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-1-768x496.png 768w" sizes="(max-width: 1009px) 100vw, 1009px"></a></p>
+<p>測試專案名稱為 “WinFormSetup”。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-2.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2854" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-2.png" alt="" width="1010" height="450" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-2.png 1010w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-2-768x342.png 768w" sizes="(max-width: 1010px) 100vw, 1010px"></a></p>
+<h2><span id="_Installer_Projects">安裝 Installer Projects</span></h2>
+<p>VS 的安裝檔模組功能是需要另外下載的，下載連結：<a href="https://marketplace.visualstudio.com/items?itemName=visualstudioclient.MicrosoftVisualStudio2017InstallerProjects" target="_blank" rel="noopener">VS2017, VS2019</a>，<a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects" target="_blank" rel="noopener">VS2022</a> 。<br>
+或是在 VS 的功能列上開啟「延伸模組 &gt; 管理延伸模組」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-3.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2855" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-3.png" alt="管理延伸模組" width="899" height="100" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-3.png 899w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-3-768x85.png 768w" sizes="(max-width: 899px) 100vw, 899px"></a></p>
+<p>搜尋「Installer Project」，找到「Microsoft Visual Studio Installer Projects」，點擊「下載」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-4.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2856" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-4.png" alt="Microsoft Visual Studio Installer Projects" width="1095" height="645" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-4.png 1095w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-4-768x452.png 768w" sizes="(max-width: 1095px) 100vw, 1095px"></a></p>
+<p>下載後需要關閉 Visual Studio 才會執行安裝。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-5.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2857" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-5.png" alt="Microsoft Visual Studio Installer Projects" width="432" height="323"></a></p>
+<p>安裝完成。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-6.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2858" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-6.png" alt="Microsoft Visual Studio Installer Projects" width="434" height="325"></a></p>
+<h2><span id="i-2">安裝檔專案設定</span></h2>
+<h3><span id="_Setup_Project">加入 Setup Project 專案</span></h3>
+<p>重新開啟專案後，在「解決方案」按右鍵選「加入 &gt; 新增專案」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-7.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2860" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-7.png" alt="安裝檔專案設定" width="938" height="547" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-7.png 938w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-7-768x448.png 768w" sizes="(max-width: 938px) 100vw, 938px"></a></p>
+<p>在上方搜尋「Setup Project」，找到「Setup Project」專案加入。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-8.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2861" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-8.png" alt="Setup Project" width="599" height="638"></a></p>
+<p>輸入專案名稱。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-9.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2862" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-9.png" alt="Setup Project" width="840" height="568" srcset="https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-9.png 840w, https://blog.hungwin.com.tw/wp-content/uploads/2021/09/visual-studio-2019-winform-setup-9-768x519.png 768w" sizes="(max-width: 840px) 100vw, 840px"></a></p>
+<p>加入專案後，在主畫面上會出現 3 種安裝檔目錄內容。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-10.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2863" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-10.png" alt="Setup Project" width="317" height="152"></a></p>
+<p><strong>Application Folder</strong>: 安裝完成後會新增到使用者電腦裡的檔案。<br>
+<strong>User’s Desktop</strong>: 安裝後會新增至使用者桌面的檔案。<br>
+<strong>User’s Programs Menu</strong>: 安裝後會新增至使用者程式集的檔案。</p>
+<h3><span id="i-3">加入專案輸出</span></h3>
+<p>在「Application Folder」按右鍵選「Add &gt; 專案輸出」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-11.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2864" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-11.png" alt="Application Folder" width="645" height="227"></a></p><div class="55962404ecf37f51b5d5b2445076605d" data-index="2" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<!-- Mars-部落格-文章內廣告 -->
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 105px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-1959505851793752" data-ad-slot="4879199386" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 105px; width: 850px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_2" name="aswift_2" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 850px; height: 105px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="850" height="105" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/ads(1).html" data-google-container-id="a!3" data-google-query-id="CK-8g_agp_oCFcl0YAodPmkNcQ" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<p>選擇要輸出的專案，再點擊「主要輸出」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-12.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2865" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-12.png" alt="Application Folder" width="366" height="467"></a></p>
+<p>會出現 Windows Forms 專案輸出的執行檔及必要 .dll。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-13.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2866" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-13.png" alt="Application Folder" width="659" height="152"></a></p>
+<h3><span id="i-4">建立使用者桌面捷徑</span></h3>
+<p>點左邊的目錄「User’s Desktop」，在右邊的內容按右鍵選「建立新捷徑」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-14.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2867" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-14.png" alt="User’s Desktop" width="633" height="277"></a></p>
+<p>選「Application Folder」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-15.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2869" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-15.png" alt="" width="525" height="373"></a></p>
+<p>再選擇「主要輸出」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-16.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2870" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-16.png" alt="" width="526" height="370"></a></p>
+<p>建立好的捷徑再更換捷徑名稱，按右鍵選「重新命名」修改即可。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-17.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2871" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-17.png" alt="建立使用者桌面捷徑" width="433" height="177"></a></p>
+<p>建議改跟專案名稱一樣，這是會出現在使用者桌面上的名稱。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-18.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2872" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-18.png" alt="" width="606" height="149"></a></p>
+<p>要修改捷徑圖示，就按右鍵選「屬性視窗」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-19-1.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2873" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-19-1.png" alt="" width="400" height="181"></a></p>
+<p>在「icon」選擇「(Browse)」，接著再選擇 .ico 的圖檔就行。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-20.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2874" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-20.png" alt="" width="442" height="250"></a></p>
+<p>在選擇 .ico 圖檔時，要一起將圖示放在「Application Folder」目錄裡面，可以按「Add File」，將 .ico圖檔放進來。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-21.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2875" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-21.png" alt="" width="526" height="375"></a></p>
+<h3><span id="i-5">建立使用者程式集捷徑</span></h3>
+<p>在左邊點「User’s Programs Menu」，在右邊空白處按右鍵選「建立新捷徑」。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-22.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2876" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-22.png" alt="建立使用者程式集捷徑" width="673" height="296"></a></p>
+<p>接下來作法跟建立桌面捷徑一樣，這裡我就貼出完成後的畫面。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-23.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2877" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-23.png" alt="建立使用者程式集捷徑" width="555" height="179"></a></p>
+<h2><span id="i-6">設定安裝專案屬性</span></h2>
+<p>點擊安裝檔專案的屬性，可以調整安裝設定。<br>
+可以依圖示內說明，調整正式發佈的專案描述。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-24.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2878" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-24.png" alt="設定安裝專案屬性" width="743" height="548"></a></p>
+<h2><span id="i-7">輸出安裝檔</span></h2>
+<p>一切設定完後，在專案按右鍵選「建置」，VS 會建立此安裝檔。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-25.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2879" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-25.png" alt="輸出安裝檔" width="395" height="321"></a></p>
+<p>建置後，在專案底下的「\Debug」目錄就會出現安裝檔。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-26.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2880" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-26.png" alt="" width="220" height="101"></a></p>
+<p>執行安裝。</p>
+<p><a href="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-27.png" rel="lightbox[2852]"><img loading="lazy" class="alignnone size-full wp-image-2881" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/visual-studio-2019-winform-setup-27.png" alt="" width="627" height="510"></a></p>
+<p>安裝後就會在桌面或程式集上面出現捷徑，執行後會開啟你的 Windows Forms 執行檔。</p>
+<h2><span id="i-8">重點整理</span></h2>
+<ol>
+<li>將 WinForm 打包成安裝檔，是發佈程式最好的方式</li>
+<li>安裝 Installer Projects 模組來建立專案</li>
+<li>加入 Setup Project 專案來設定安裝檔</li>
+<li>加入專案輸出，將執行檔放至安裝包裡面</li>
+<li>建立捷徑方便執行</li>
+<li>專案建置後輸出 Setup.exe 安裝檔</li>
+</ol>
+<h4>相關學習文章</h4>
+<ul>
+<li><a href="https://blog.hungwin.com.tw/csharp-winform-combobox-value-text/">[C# WinForm] 如何讓 ComboBox 也能設定值 (Value) 與名稱 (Text)</a></li>
+<li><a href="https://blog.hungwin.com.tw/csharp-winform-mdi-form/">[C# Winform] MDI 多重視窗操作-如何避免重複開啟</a></li>
+<li><a href="https://blog.hungwin.com.tw/csharp-winform-guide-ch1/">安裝程式開發工具(IDE) Visual Studio 2019</a></li>
+</ul>
+<figure class="likecoin-embed likecoin-button"><iframe scrolling="no" frameborder="0" style="height:212px;width: 360px;" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/button.html"></iframe></figure><div class="55962404ecf37f51b5d5b2445076605d" data-index="3" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<p style="color : #FF0000; font-weight:bold">
+如果你在學習上有不懂的地方，需要家教或諮詢服務，可以參考<a href="https://blog.hungwin.com.tw/service/" target="_blank">站長服務</a>，我想辨法解決你的問題<br>
+你也可以到<a href="https://www.facebook.com/groups/winmis" target="_blank">軟體工程師-學習教室</a>社團提問，社友會幫忙回答<br>
+如果文章內容有錯誤的地方，幫我在下方留言通知我一下，謝謝<br>
+喜歡我的文章，請幫我在上方綠色拍手圖示按 5 下，也歡迎按月贊助，鼓勵我繼續創作，謝謝
+</p>
+
+<p style="background-color: #F1F1F1;font-size: 23px;line-height: 1.7em;color: #001F3F;font-weight:  bold;">
+加入社團一起討論
+</p>
+<div style="padding-bottom: 10px; text-align: center;"><a href="https://www.facebook.com/groups/winmis" target="_blank" rel="noopener"><img src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/fb-group-join-320.jpg"></a></div>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>
+	</div><!-- .entry-content -->
+
+	
+		<footer class="entry-footer">
+			<div class="entry-meta">
+
+				<span class="tag-links"><a href="https://blog.hungwin.com.tw/tag/setup/" rel="tag"><i class="fas fa-hashtag"></i>安裝檔</a></span> 			</div><!-- .entry-meta -->
+		</footer><!-- .entry-footer -->
+			
+		</div><!-- .entry-content-holder -->
+</article><!-- #post-2852 -->
+
+	<nav class="navigation post-navigation" aria-label="文章">
+		<h2 class="screen-reader-text">文章導覽</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://blog.hungwin.com.tw/csharp-fubon-future-api-guide/" rel="prev">【C# 富邦期貨 API 開發教學】元件安裝、登入及下單教學</a></div><div class="nav-next"><a href="https://blog.hungwin.com.tw/asus-e510ma-0431wn4120/" rel="next">[開箱] ASUS E510MA 夢幻白 15.6 吋平價文書筆電開箱評價</a></div></div>
+	</nav>
+<div id="comments" class="comments-area">
+
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://blog.hungwin.com.tw/visual-studio-2019-winform-setup/#respond" style="display:none;">取消回覆</a></small></h3><form action="https://blog.hungwin.com.tw/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span> <span class="required-field-message" aria-hidden="true">必填欄位標示為 <span class="required" aria-hidden="true">*</span></span></p><p class="comment-form-comment"><label for="comment">留言 <span class="required" aria-hidden="true">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required=""></textarea></p><p class="comment-form-author"><label for="author">顯示名稱 <span class="required" aria-hidden="true">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required=""></p>
+<p class="comment-form-email"><label for="email">電子郵件地址 <span class="required" aria-hidden="true">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required=""></p>
+<p class="comment-form-url"><label for="url">個人網站網址</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">在<strong>瀏覽器</strong>中儲存顯示名稱、電子郵件地址及個人網站網址，以供下次發佈留言時使用。</label></p>
+<p class="aiowps-captcha"><label for="aiowps-captcha-answer">Please enter an answer in digits:</label></p><div class="aiowps-captcha-equation"><strong>18 + 13 = <input type="hidden" name="aiowps-captcha-string-info" id="aiowps-captcha-string-info" value="nlye97y3q8"><input type="hidden" name="aiowps-captcha-temp-string" id="aiowps-captcha-temp-string" value="1663810419"><input type="text" size="2" id="aiowps-captcha-answer" name="aiowps-captcha-answer" value="" autocomplete="off"></strong></div><p></p><div class="c4wp_captcha_field" style="margin-bottom: 10px;"><div id="c4wp_captcha_field_1" class="c4wp_captcha_field_div"><input type="hidden" name="g-recaptcha-response" aria-label="do not use" aria-readonly="true" value="03AIIukziYqB0blWZWgkGQRFzjKoURA6Ob7i6AnUSfUe8mgW7GiLVDUBUUh89alRCCn7gM-cuRuMv_Wd3RpLPyMtWZTkfJbNEJP1biTWMjUJTQ566rb7b-YrGh3qiSjaeXq4HluvHuxu28HwlsApbyzeCbDCaYObhyPQGZ0VrWoc7WdhBcW4Z___0nOBJMnqnb7qYZLyQ61pRpEubJAArkGshh-gTwKRQvRZMeRB5glFHqItmg6UJw7HkRWXoVKOc-VemYNDkcCbWT90Mc1hyN4gtGbqYWbpNmBUwWTeRdLAvJCJkB9BRnZHu1rlHiSNMOuJzsJAnj3BsbvyskLnmB4_S94gxjsfPRhXPF5UH6N9Dwm7QcuCgEcjrqG11QuPaYJC5tLuTVGctG1vPpqbjUu9jP4z2ymqYMxxjpyBQQ5UgXh6BZgHMqgJEPKUY_kh8uN9V4J4Wo2dVaZh09mF1mItugFGfxCJTbWe1KdZuqizyJw1YcpuyGOzsSF_vCsGzwjsPPw-D9sHdM4RPJiTbMEQvFxiGN-3tycXKS0XMr5iu9Rkri5q9SBsQ"></div></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="發佈留言"> <input type="hidden" name="comment_post_ID" value="2852" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<aside id="secondary" class="widget-area" style="height: auto !important;">
+	<section id="views-2" class="widget widget_views"><h2 class="widget-title">熱門文章</h2><ul>
+<li><a href="https://blog.hungwin.com.tw/windows-server-sql-server-2019-install/" title="Windows Server 如何安裝 SQL Server 2019 免費開發版">Windows Server 如何安裝 SQL Server 2019 免費開發版</a> - 47,553 views</li><li><a href="https://blog.hungwin.com.tw/office2010/" title="舊版 Office 2010 – 免破解，到期後可繼續使用">舊版 Office 2010 – 免破解，到期後可繼續使用</a> - 32,286 views</li><li><a href="https://blog.hungwin.com.tw/convertzz/" title="如何將亂碼簡體檔名、資料夾在繁體電腦正常顯示-使用 ConvertZZ 免費軟體">如何將亂碼簡體檔名、資料夾在繁體電腦正常顯示-使用 ConvertZZ 免費軟體</a> - 28,771 views</li><li><a href="https://blog.hungwin.com.tw/lets-encrypt-iis-install/" title="如何申請免費 Let’s Encrypt SSL 自動更新憑證，自架 IIS 站台適用">如何申請免費 Let’s Encrypt SSL 自動更新憑證，自架 IIS 站台適用</a> - 24,984 views</li><li><a href="https://blog.hungwin.com.tw/windows-server-mysql-community-install/" title="Windows Server 安裝 MySQL Community 免費社群版">Windows Server 安裝 MySQL Community 免費社群版</a> - 19,297 views</li><li><a href="https://blog.hungwin.com.tw/asus-e510ma-0431wn4120/" title="[開箱] ASUS E510MA 夢幻白 15.6 吋平價文書筆電開箱評價">[開箱] ASUS E510MA 夢幻白 15.6 吋平價文書筆電開箱評價</a> - 19,090 views</li><li><a href="https://blog.hungwin.com.tw/windows-auto-login/" title="如何設定 Windows 開機自動登入帳號密碼">如何設定 Windows 開機自動登入帳號密碼</a> - 18,513 views</li><li><a href="https://blog.hungwin.com.tw/windows-server-iis-install/" title="Windows Server 2019 如何安裝 IIS 運行 ASP.NET 專案">Windows Server 2019 如何安裝 IIS 運行 ASP.NET 專案</a> - 16,822 views</li><li><a href="https://blog.hungwin.com.tw/sqlserver-backup-delete-file/" title="SQL Server 每日定期備份與定期刪除舊有備份檔">SQL Server 每日定期備份與定期刪除舊有備份檔</a> - 16,706 views</li><li><a href="https://blog.hungwin.com.tw/csharp-twse-price/" title="[C#] 取得證交所台股價格的 3 種實用方法">[C#] 取得證交所台股價格的 3 種實用方法</a> - 14,340 views</li></ul>
+</section><section id="custom_html-3" class="widget_text widget widget_custom_html" style="height: auto !important;"><h2 class="widget-title">贊助</h2><div class="textwidget custom-html-widget"><!-- Mars-部落格-側邊欄廣告 -->
+<ins class="adsbygoogle" style="display: block; height: 750px;" data-ad-client="ca-pub-1959505851793752" data-ad-slot="9824937139" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 750px; width: 222px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_3" name="aswift_3" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 222px; height: 750px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="222" height="750" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/ads(2).html" data-google-container-id="a!4" data-google-query-id="CPOk3-igp_oCFbTOTAIdXnoNBQ" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></section>
+		<section id="recent-posts-5" class="widget widget_recent_entries">
+		<h2 class="widget-title">近期文章</h2>
+		<ul>
+											<li>
+					<a href="https://blog.hungwin.com.tw/engineers-financial-freedom/">軟體工程師達到財務自由的優勢</a>
+									</li>
+											<li>
+					<a href="https://blog.hungwin.com.tw/aspnet-core-mvc-webapi-client/">[ASP.NET Core MVC] 使用一般 Controller 建立 Web Api 與實作 Client 端呼叫</a>
+									</li>
+											<li>
+					<a href="https://blog.hungwin.com.tw/cuda-gup-install/">如何在 Visual Studio 2022 安裝 CUDA GUP 計算功能</a>
+									</li>
+											<li>
+					<a href="https://blog.hungwin.com.tw/why-to-be-a-teacher/">你喜歡/想要成為講師嗎？分享我為什麼要成為講師</a>
+									</li>
+											<li>
+					<a href="https://blog.hungwin.com.tw/windows-home-hyper-v/">如何在 Win10 / Win11 家用版安裝 Hyper-V 虛擬機器？</a>
+									</li>
+					</ul>
+
+		</section><section id="custom_html-2" class="widget_text widget widget_custom_html"><h2 class="widget-title">學習目標</h2><div class="textwidget custom-html-widget"><p>在這裡我會向你分享軟體工程師會用到的技術能力。</p>
+<p>包含 ASP.NET, WordPress 和區塊鏈為主的技術文章。</p>
+<p>我是 Mars ，我們一起學習成長吧。</p>
+<img src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/Mars-avatar-20220721.jpg">
+<p>是否有問題需要我協助，可與我聯絡。</p>
+<a href="https://lin.ee/hhe0FQz" target="_blank" rel="noopener"><img src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/zh-Hant.png" alt="加入好友" height="36" border="0"></a></div></section><section id="custom_html-8" class="widget_text widget widget_custom_html"><h2 class="widget-title">商業合作</h2><div class="textwidget custom-html-widget"><p>提供廣告版位出租、聯盟行銷及業配文章合作等內容，有需要商業合作的廠商請與我聯絡。</p>
+</div></section><section id="custom_html-7" class="widget_text widget widget_custom_html" style="height: auto !important;"><h2 class="widget-title">贊助</h2><div class="textwidget custom-html-widget"><!-- Mars-部落格-側邊欄廣告2 -->
+<ins class="adsbygoogle" style="display: block; height: 750px;" data-ad-client="ca-pub-1959505851793752" data-ad-slot="2819871978" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_4_host" style="border: none; height: 750px; width: 222px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_4" name="aswift_4" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 222px; height: 750px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="222" height="750" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/ads(3).html" data-google-container-id="a!5" data-google-query-id="CPKsueqgp_oCFcdbYAodF3QJHA" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></section></aside><!-- #secondary -->
+</div><!-- .wrap -->
+		</div><!-- .site-content-cell -->
+	</div><!-- #content -->
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+			
+		<div class="copyright-area">
+			<div class="wrap">
+				<div style="float:left;">
+					<a href="https://blog.hungwin.com.tw/feed/" target="_blank">RSS</a>
+				</div>
+								<div class="site-info">
+					Powered by 宏雲資訊    <!--<a href="https://wordpress.org/">-->
+<!--</a>
+<span class="sep"> | </span>-->
+				</div><!-- .site-info -->
+												<div class="footer-right-info">
+								<a class="privacy-policy-link" href="https://blog.hungwin.com.tw/privacy-policy/">隱私權政策</a>							</div>
+									</div><!-- .wrap -->
+		</div><!-- .copyright-area -->
+	</footer><!-- #colophon -->
+			<button href="#" class="back-to-top active" type="button" style="display: inline-block;"><i class="fas fa-angle-up"></i></button>
+	<!-- #page -->
+
+	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type="text/javascript" id="image-sizes-js-extra">
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","2048x2048","medium","woocommerce_single","woocommerce_thumbnail","businessdeal-blog","businessdeal-grid-post","businessdeal-personal-widget","businessdeal-welcome-widget","large","1536x1536","woocommerce_gallery_thumbnail"]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/front.min.js.下載" id="image-sizes-js"></script>
+<script type="text/javascript" id="toc-front-js-extra">
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/front.min.js(1).下載" id="toc-front-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/jquery.blockUI.min.js.下載" id="jquery-blockui-js"></script>
+<script type="text/javascript" id="wc-add-to-cart-js-extra">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"\u67e5\u770b\u8cfc\u7269\u8eca","cart_url":"https:\/\/blog.hungwin.com.tw\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/add-to-cart.min.js.下載" id="wc-add-to-cart-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/js.cookie.min.js.下載" id="js-cookie-js"></script>
+<script type="text/javascript" id="woocommerce-js-extra">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/woocommerce.min.js.下載" id="woocommerce-js"></script>
+<script type="text/javascript" id="wc-cart-fragments-js-extra">
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_598991d1a7f4d2f30d0d06843d88983c","fragment_name":"wc_fragments_598991d1a7f4d2f30d0d06843d88983c","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/cart-fragments.min.js.下載" id="wc-cart-fragments-js"></script>
+<script type="text/javascript" id="wp-jquery-lightbox-js-extra">
+/* <![CDATA[ */
+var JQLBSettings = {"fitToScreen":"0","resizeSpeed":"400","displayDownloadLink":"0","navbarOnTop":"0","loopImages":"","resizeCenter":"","marginSize":"","linkTarget":"","help":"","prevLinkTitle":"previous image","nextLinkTitle":"next image","prevLinkText":"\u00ab Previous","nextLinkText":"Next \u00bb","closeTitle":"close image gallery","image":"Image ","of":" of ","download":"Download","jqlb_overlay_opacity":"80","jqlb_overlay_color":"#000000","jqlb_overlay_close":"1","jqlb_border_width":"10","jqlb_border_color":"#ffffff","jqlb_border_radius":"0","jqlb_image_info_background_transparency":"100","jqlb_image_info_bg_color":"#ffffff","jqlb_image_info_text_color":"#000000","jqlb_image_info_text_fontsize":"10","jqlb_show_text_for_image":"1","jqlb_next_image_title":"next image","jqlb_previous_image_title":"previous image","jqlb_next_button_image":"https:\/\/blog.hungwin.com.tw\/wp-content\/plugins\/wp-lightbox-2\/styles\/images\/next.gif","jqlb_previous_button_image":"https:\/\/blog.hungwin.com.tw\/wp-content\/plugins\/wp-lightbox-2\/styles\/images\/prev.gif","jqlb_maximum_width":"","jqlb_maximum_height":"","jqlb_show_close_button":"1","jqlb_close_image_title":"close image gallery","jqlb_close_image_max_heght":"22","jqlb_image_for_close_lightbox":"https:\/\/blog.hungwin.com.tw\/wp-content\/plugins\/wp-lightbox-2\/styles\/images\/closelabel.gif","jqlb_keyboard_navigation":"1","jqlb_popup_size_fix":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/wp-lightbox-2.min.js.下載" id="wp-jquery-lightbox-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/navigation.min.js.下載" id="businessdeal-navigation-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/skip-link-focus-fix.js.下載" id="businessdeal-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/jquery.sticky.js.下載" id="jquery-sticky-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/sticky-setting.js.下載" id="businessdeal-sticky-settings-js"></script>
+<script type="text/javascript" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/comment-reply.min.js.下載" id="comment-reply-js"></script>
+			<script src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/api.js.下載"></script>
+			<script type="text/javascript">
+				( function( grecaptcha ) {
+
+					var c4wp_onloadCallback = function() {
+						grecaptcha.execute(
+							'6LeTvEMeAAAAAMmPmXLVrpVC8NECRtrVqUEdVRk_',
+							{ action: 'advanced_nocaptcha_recaptcha' }
+						).then( function( token ) {
+							for ( var i = 0; i < document.forms.length; i++ ) {
+								var form = document.forms[i];
+								var captcha = form.querySelector( 'input[name="g-recaptcha-response"]' );
+								if ( null === captcha )
+									continue;
+
+								captcha.value = token;
+							}
+							// Apply relevent accessibility attributes to response.
+							var responseTextareas = document.querySelectorAll(".g-recaptcha-response");
+							responseTextareas.forEach(function(textarea) {
+								textarea.setAttribute("aria-hidden", "true");
+								textarea.setAttribute("aria-label", "do not use");
+								textarea.setAttribute("aria-readonly", "true");
+							});
+						});
+					};
+
+					grecaptcha.ready( c4wp_onloadCallback );
+
+					//token is valid for 2 minutes, So get new token every after 1 minutes 50 seconds
+					setInterval(c4wp_onloadCallback, 110000);
+
+				} )( grecaptcha );
+			</script>
+			
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/ads(4).html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/anchor.html" width="256" height="60" role="presentation" name="a-2mi4bxrsi93w" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;" aria-hidden="true" aria-label="do not use" aria-readonly="true"></textarea></div><iframe style="display: none;" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/saved_resource.html"></iframe></div><iframe src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./如何在 Visual Studio 2019 建立 Windows Forms App 程式安裝檔 - 工程師 Mars_files/zrt_lookup.html" style="display: none;"></iframe></html>
